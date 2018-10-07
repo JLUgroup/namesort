@@ -17,7 +17,7 @@
 import chardet
 import os,sys,re
 
-if os.access('nameout.txt',os.F_OK):
+if os.access('nameout.txt', os.F_OK):
     os.remove('nameout.txt')
 
 files = os.listdir(os.getcwd())
@@ -33,6 +33,8 @@ for filename in files:
     namefile = open(filename,mode = 'r')
     coding = chardet.detect(namefile.read(200))['encoding']
     namefile.seek(0,0)
+   # print coding
+   # exit()
     for names in namefile:
         namestore = []
         names = names.decode(coding)
